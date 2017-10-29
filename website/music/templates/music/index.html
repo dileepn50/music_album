@@ -1,0 +1,15 @@
+{% extends 'music/base.html' %}
+
+{% block title %}
+	Vigerr
+{% endblock %}
+{% block body %}
+	<h2>All the albums are listed here:</h2>
+		{% if all_albums %}
+			{% for album in all_albums %}
+				<li><a href="{% url 'music:detail' album.id %}">{{ album.artist }}</a></li>
+			{% endfor %}
+		{% else %}
+			<li>Ther are no albums in the database </li>
+		{% endif %}
+{% endblock %}
