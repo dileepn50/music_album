@@ -2,6 +2,7 @@ from django import shortcuts
 from django import http
 from django.views import generic
 from django.views.generic import edit
+from django.core.urlresolvers import reverse_lazy
 
 
 from music import models
@@ -35,6 +36,15 @@ class DetailView(generic.DetailView):
 class CreateView(edit.CreateView):
     model = models.Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+
+class AlbumUpdate(edit.UpdateView):
+    model = models.Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+class AlbumDelete(edit.DeleteView):
+    model = models.Album
+    success_url = reverse_lazy('music:index')
 
 
 def favourite(request, album_id):

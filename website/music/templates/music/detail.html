@@ -3,7 +3,7 @@
   Album Details
 {% endblock %}
 {% block body %}
-  <img src="{{ album.album_logo}}" wdith='700' height='1100'></a>
+  <img src="{{ album.album_logo.url }}" wdith='700' height='1100'></a>
   <h2>artist name: {{ object.artist }}</h2>
   <h2>album title: {{ object.album_title }}</h2>
 
